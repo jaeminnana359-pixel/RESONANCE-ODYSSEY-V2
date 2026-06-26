@@ -1383,8 +1383,10 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            overflow: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
         }
 
         #quiz-cards-overlay .quiz-header {
@@ -1406,12 +1408,15 @@
             align-items: stretch;
             overflow-x: auto;
             overflow-y: hidden;
-            padding: 6px 4px 10px;
+            padding: 6px 8px 10px;
             scroll-snap-type: x proximity;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             touch-action: pan-x;
             overscroll-behavior: contain;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .cards-container.dragging {
@@ -1433,11 +1438,11 @@
             height: 100%;
             min-height: 0;
             overflow: hidden;
-            transform: translateX(-6px);
+            transform: translateX(-8px);
         }
 
         .card:hover {
-            transform: translateX(-6px) scale(1.03);
+            transform: translateX(-8px) scale(1.03);
         }
 
         .card-title {
